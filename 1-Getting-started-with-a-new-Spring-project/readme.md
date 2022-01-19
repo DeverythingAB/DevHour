@@ -3,6 +3,9 @@ In this section you will be introduced to our 5 chapter series. We will then kic
 
 Completing this section will make it easy for you to get started on your new projects, microservices and similar
 
+#### Youtube recording of this sesion
+https://www.youtube.com/watch?v=tyrQFcXfCO4&t=122s
+
 #### Introduction
 We will build an application that manages products that we would like to sell online.
 
