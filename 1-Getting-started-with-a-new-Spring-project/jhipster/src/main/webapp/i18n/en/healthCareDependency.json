@@ -1,0 +1,25 @@
+{
+  "devhourApp": {
+    "healthCareDependency": {
+      "home": {
+        "title": "Health Care Dependencies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Health Care Dependency",
+        "createOrEditLabel": "Create or edit a Health Care Dependency",
+        "notFound": "No Health Care Dependencies found"
+      },
+      "created": "A new Health Care Dependency is created with identifier {{ param }}",
+      "updated": "A Health Care Dependency is updated with identifier {{ param }}",
+      "deleted": "A Health Care Dependency is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Health Care Dependency {{ id }}?"
+      },
+      "detail": {
+        "title": "Health Care Dependency"
+      },
+      "id": "ID",
+      "name": "Name",
+      "location": "Location"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="receipt">
+      <h2 data-cy="receiptDetailsHeading"><span jhiTranslate="devhourApp.receipt.detail.title">Receipt</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ receipt.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="devhourApp.receipt.number">Number</span></dt>
+        <dd>
+          <span>{{ receipt.number }}</span>
+        </dd>
+        <dt><span jhiTranslate="devhourApp.receipt.healthCareDependency">Health Care Dependency</span></dt>
+        <dd>
+          <div *ngIf="receipt.healthCareDependency">
+            <a [routerLink]="['/health-care-dependency-devery', receipt.healthCareDependency?.id, 'view']">{{
+              receipt.healthCareDependency?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="devhourApp.receipt.diagnosis">Diagnosis</span></dt>
+        <dd>
+          <div *ngIf="receipt.diagnosis">
+            <a [routerLink]="['/diagnosis-devery', receipt.diagnosis?.id, 'view']">{{ receipt.diagnosis?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/receipt-devery', receipt.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

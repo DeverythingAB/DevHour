@@ -1,0 +1,25 @@
+{
+  "devhourApp": {
+    "healthCareDependency": {
+      "home": {
+        "title": "Health Care Dependencies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Health Care Dependency",
+        "createOrEditLabel": "Skapa eller ändra en Health Care Dependency",
+        "notFound": "No Health Care Dependencies found"
+      },
+      "created": "En ny Health Care Dependency är skapad med id {{ param }}",
+      "updated": "En Health Care Dependency är uppdaterad med id  {{ param }}",
+      "deleted": "En Health Care Dependency är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Health Care Dependency {{ id }}?"
+      },
+      "detail": {
+        "title": "Health Care Dependency"
+      },
+      "id": "ID",
+      "name": "Name",
+      "location": "Location"
+    }
+  }
+}

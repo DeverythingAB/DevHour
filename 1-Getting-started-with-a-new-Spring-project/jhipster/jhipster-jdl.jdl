@@ -1,0 +1,57 @@
+entity Patient {
+	curp String required,
+	firstName String,
+    lastName String,
+    email String,
+	phoneNumber String,
+}
+
+entity HealthCareDependency{
+	name String required
+}
+
+entity Location {
+	streetAddress String required,
+	postalCode String required,
+	city String required,
+	stateProvince String required
+}
+
+entity Image{
+	image Blob required,
+    uploaded Boolean
+}
+
+entity Diagnosis{
+	diagnosis String required
+}
+
+entity Receipt{
+	number Long required
+}
+
+relationship OneToOne {
+	Image{location} to Location,
+    HealthCareDependency{location} to Location,
+    Receipt{healthCareDependency} to HealthCareDependency
+    Receipt{diagnosis} to Diagnosis
+}
+
+relationship ManyToOne{
+	Image{diagnosis} to Diagnosis
+}
+
+relationship OneToMany{
+    Patient to Image{patient}
+}
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+paginate all with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with devery

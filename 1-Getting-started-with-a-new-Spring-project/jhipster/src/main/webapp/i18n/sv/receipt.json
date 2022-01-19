@@ -1,0 +1,26 @@
+{
+  "devhourApp": {
+    "receipt": {
+      "home": {
+        "title": "Receipts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Receipt",
+        "createOrEditLabel": "Skapa eller ändra en Receipt",
+        "notFound": "No Receipts found"
+      },
+      "created": "En ny Receipt är skapad med id {{ param }}",
+      "updated": "En Receipt är uppdaterad med id  {{ param }}",
+      "deleted": "En Receipt är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Receipt {{ id }}?"
+      },
+      "detail": {
+        "title": "Receipt"
+      },
+      "id": "ID",
+      "number": "Number",
+      "healthCareDependency": "Health Care Dependency",
+      "diagnosis": "Diagnosis"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "devhourApp": {
+    "diagnosis": {
+      "home": {
+        "title": "Diagnoses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Diagnosis",
+        "createOrEditLabel": "Skapa eller ändra en Diagnosis",
+        "notFound": "No Diagnoses found"
+      },
+      "created": "En ny Diagnosis är skapad med id {{ param }}",
+      "updated": "En Diagnosis är uppdaterad med id  {{ param }}",
+      "deleted": "En Diagnosis är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Diagnosis {{ id }}?"
+      },
+      "detail": {
+        "title": "Diagnosis"
+      },
+      "id": "ID",
+      "diagnosis": "Diagnosis"
+    }
+  }
+}

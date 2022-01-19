@@ -1,0 +1,28 @@
+{
+  "devhourApp": {
+    "image": {
+      "home": {
+        "title": "Images",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Image",
+        "createOrEditLabel": "Skapa eller ändra en Image",
+        "notFound": "No Images found"
+      },
+      "created": "En ny Image är skapad med id {{ param }}",
+      "updated": "En Image är uppdaterad med id  {{ param }}",
+      "deleted": "En Image är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Image {{ id }}?"
+      },
+      "detail": {
+        "title": "Image"
+      },
+      "id": "ID",
+      "image": "Image",
+      "uploaded": "Uploaded",
+      "location": "Location",
+      "diagnosis": "Diagnosis",
+      "patient": "Patient"
+    }
+  }
+}

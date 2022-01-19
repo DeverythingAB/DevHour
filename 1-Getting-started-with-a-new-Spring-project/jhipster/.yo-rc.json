@@ -42,6 +42,8 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en", "es", "sv"],
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["Patient", "HealthCareDependency", "Location", "Image", "Diagnosis", "Receipt"],
+    "lastLiquibaseTimestamp": 1642002648000
   }
 }

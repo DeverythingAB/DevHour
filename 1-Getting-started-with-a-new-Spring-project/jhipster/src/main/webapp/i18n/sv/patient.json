@@ -1,0 +1,29 @@
+{
+  "devhourApp": {
+    "patient": {
+      "home": {
+        "title": "Patients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Patient",
+        "createOrEditLabel": "Skapa eller ändra en Patient",
+        "notFound": "No Patients found"
+      },
+      "created": "En ny Patient är skapad med id {{ param }}",
+      "updated": "En Patient är uppdaterad med id  {{ param }}",
+      "deleted": "En Patient är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Patient {{ id }}?"
+      },
+      "detail": {
+        "title": "Patient"
+      },
+      "id": "ID",
+      "curp": "Curp",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "image": "Image"
+    }
+  }
+}

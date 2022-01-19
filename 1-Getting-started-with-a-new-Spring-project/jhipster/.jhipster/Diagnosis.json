@@ -1,0 +1,22 @@
+{
+  "name": "Diagnosis",
+  "fields": [
+    {
+      "fieldName": "diagnosis",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "diagnosis",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "devery",
+  "changelogDate": "20220112155047"
+}

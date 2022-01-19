@@ -1,0 +1,24 @@
+{
+  "devhourApp": {
+    "diagnosis": {
+      "home": {
+        "title": "Diagnoses",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Diagnosis",
+        "createOrEditLabel": "Crear o editar Diagnosis",
+        "notFound": "Ningún Diagnoses encontrado"
+      },
+      "created": "Un nuevo Diagnosis ha sido creado con el identificador {{ param }}",
+      "updated": "Un Diagnosis ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Diagnosis ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Diagnosis {{ id }}?"
+      },
+      "detail": {
+        "title": "Diagnosis"
+      },
+      "id": "ID",
+      "diagnosis": "Diagnosis"
+    }
+  }
+}
