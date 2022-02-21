@@ -3,7 +3,7 @@ In this section you will be introduced to our 5 chapter series. We will then kic
 
 Completing this section will make it easy for you to get started on your new projects, microservices and similar
 
-#### Youtube recording of this sesion
+#### YouTube recording of this session
 https://www.youtube.com/watch?v=tyrQFcXfCO4&t=122s
 
 #### Introduction
