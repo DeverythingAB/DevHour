@@ -32,7 +32,6 @@ First we need to build our runnable jar files for each service. These are later 
 
 Open a terminal and go to the root folder for this project. Use maven to build our snapshot jar files
    ```
-    cd 2-Deploy-containers-in-Kubernetes
     mvn clean install
    ```
 
@@ -44,7 +43,6 @@ image we want to build is defined and once a container is launched it also tells
 
 2. Open a terminal and go to the root folder for this project. Run the following to build all three images
    ```
-    cd 2-Deploy-containers-in-Kubernetes
     ./build-docker-images.sh
    ```
 3. Let start the order-service to verify that everything is working (notice we are using port 9000)
@@ -71,7 +69,6 @@ Minikube is a tool that lets you run Kubernetes locally. Minikube runs a single-
    ```
 4. Now we need to rebuild our images in the same terminal
    ```
-   cd 2-Deploy-containers-in-Kubernetes
    ./build-docker-images.sh
    ```
     
