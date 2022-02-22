@@ -12,7 +12,7 @@ Look at the slides.pdf to get an overview or follow along the recording on YouTu
 #### YouTube recording of this session
 https://www.youtube.com/watch?v=j9Bjq-xv8KA
 
-## Getting started with local Kubernetes deployment
+## Prerequisite ##
 
 To work with a local kubernetes setup there are some pre-requisites that you need to do for our project
 
@@ -26,6 +26,7 @@ To work with a local kubernetes setup there are some pre-requisites that you nee
 5. AWS CLI (only for sections "Deploy into AWS cloud using EKS and ECR") https://aws.amazon.com/cli/
 6. eksctl CLI (only for sections "Deploy into AWS cloud using EKS and ECR") https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
 
+## Getting started with local Kubernetes deployment
 
 ### Build our jar files using maven ###
 First we need to build our runnable jar files for each service. These are later packaged into docker containers
