@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: order-service
+  labels:
+    app: order-service
+spec:
+  selector:
+    matchLabels:
+      app: order-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: order-service
+          image: 295899794390.dkr.ecr.eu-north-1.amazonaws.com/order-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: product-service
+  labels:
+    app: product-service
+spec:
+  selector:
+    matchLabels:
+      app: product-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: 295899794390.dkr.ecr.eu-north-1.amazonaws.com/product-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9010
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: report-service
+  labels:
+    app: report-service
+spec:
+  selector:
+    matchLabels:
+      app: report-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: report-service
+    spec:
+      containers:
+        - name: report-service
+          image: 295899794390.dkr.ecr.eu-north-1.amazonaws.com/report-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9020
