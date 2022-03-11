@@ -28,5 +28,5 @@ jobs:
         working-directory: 3-Configure-ci-cd-pipelines
     steps:
       - uses: actions/checkout@v2
-      - run: ./build-docker-images.sh
+      - run: ./build-docker-images.sh staging
         shell: bash
