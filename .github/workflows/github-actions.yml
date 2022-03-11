@@ -11,6 +11,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+      - run: cd 3-Configure-ci-cd-pipelines
       - run: mvn clean install
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
