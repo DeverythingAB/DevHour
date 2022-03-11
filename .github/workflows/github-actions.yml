@@ -32,5 +32,5 @@ jobs:
         with:
           name: DevHour-jars
           path: 3-Configure-ci-cd-pipelines/staging
-      - run: ./build-docker-images.sh 3-Configure-ci-cd-pipelines/staging
+      - run: ./build-docker-images.sh /3-Configure-ci-cd-pipelines/staging
         shell: bash
