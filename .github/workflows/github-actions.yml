@@ -20,3 +20,11 @@ jobs:
         with:
           name: DevHour-jars
           path: 3-Configure-ci-cd-pipelines/staging
+  package:
+    runs-on : ubuntu-latest
+    defaults:
+      run:
+        working-directory: 3-Configure-ci-cd-pipelines
+    steps:
+      - run: build-docker-images.sh
+        shell: bash
