@@ -31,6 +31,6 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines/staging
-      - run: ./build-docker-images.sh staging
+          path: staging
+      - run: ./build-docker-images.sh $GITHUB_WORKSPACE/staging
         shell: bash
