@@ -15,11 +15,10 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - run: mvn clean install
-      - run: cp */target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
           name: DevHour-jars
-          path: staging
+          path: '*/target/*.jar'
   package:
     needs: build
     runs-on : ubuntu-latest
@@ -31,8 +30,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: DevHour-jars
-          path: staging/*.jar
       - run: cd staging && ls -la
         shell: bash
-      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/staging
+      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE
         shell: bash
