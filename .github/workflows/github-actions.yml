@@ -41,9 +41,9 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - run: |
-          docker build -t ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7} ./order-service --build-arg targetFolder=${GITHUB_SHA::7}
-          docker build -t ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7} ./product-service --build-arg targetFolder=${GITHUB_SHA::7}
-          docker build -t ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7} ./report-service --build-arg targetFolder=${GITHUB_SHA::7}
+          docker build -t ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7} ./order-service --build-arg version=${GITHUB_SHA::7}
+          docker build -t ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7} ./product-service --build-arg version=${GITHUB_SHA::7}
+          docker build -t ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7} ./report-service --build-arg version=${GITHUB_SHA::7}
           docker push ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7}
           docker push ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7}
           docker push ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7}
