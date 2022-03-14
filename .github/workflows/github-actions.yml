@@ -28,10 +28,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
         with:
+          id: jars
           name: DevHour-jars
-      - run: ls -R
+          path: 3-Configure-ci-cd-pipelines/staging
+      - run: cd 3-Configure-ci-cd-pipelines/staging && ls -la
         shell: bash
-      - run: ./3-Configure-ci-cd-pipelines/build-docker-images.sh .
+      - run: ./3-Configure-ci-cd-pipelines/build-docker-images.sh ${{steps.jars.outputs.download-path}}
         shell: bash
 
 
