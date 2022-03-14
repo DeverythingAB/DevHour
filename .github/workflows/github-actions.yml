@@ -27,8 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
+        id: jars
         with:
-          id: jars
           name: DevHour-jars
           path: 3-Configure-ci-cd-pipelines/staging
       - run: cd 3-Configure-ci-cd-pipelines/staging && ls -la
