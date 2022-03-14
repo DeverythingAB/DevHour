@@ -19,7 +19,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines/staging
+          path: staging
   package:
     needs: build
     runs-on : ubuntu-latest
