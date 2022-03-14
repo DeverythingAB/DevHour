@@ -25,17 +25,15 @@ jobs:
   package:
     needs: build
     runs-on : ubuntu-latest
-    env:
-      SHA8: ${GITHUB_SHA::8}
     steps:
       - uses: actions/download-artifact@v3
         id: build
         with:
           name: DevHour-build
       - run: |
-          docker build -t order-service:$SHA8 ./order-service
-          docker build -t product-service:$SHA8 ./product-service
-          docker build -t report-service:$SHA8 ./report-service
+          docker build -t order-service:${GITHUB_SHA::8}./order-service
+          docker build -t product-service:${GITHUB_SHA::8} ./product-service
+          docker build -t report-service:${GITHUB_SHA::8} ./report-service
         shell: bash
 
 
