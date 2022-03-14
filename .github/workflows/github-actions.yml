@@ -31,7 +31,7 @@ jobs:
         with:
           name: DevHour-jars
           path: 3-Configure-ci-cd-pipelines/staging
-      - run: cd 3-Configure-ci-cd-pipelines/staging && ls -la
+      - run: cd ${{steps.jars.outputs.download-path}} && ls -la
         shell: bash
       - run: |
           docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
