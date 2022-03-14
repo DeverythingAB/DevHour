@@ -33,7 +33,10 @@ jobs:
           path: 3-Configure-ci-cd-pipelines/staging
       - run: cd 3-Configure-ci-cd-pipelines/staging && ls -la
         shell: bash
-      - run: ./3-Configure-ci-cd-pipelines/build-docker-images.sh ${{steps.jars.outputs.download-path}}
+      - run: |
+        docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
+        docker build -t product-service ./3-Configure-ci-cd-pipelines/product-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
+        docker build -t report-service ./3-Configure-ci-cd-pipelines/report-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
         shell: bash
 
 
