@@ -34,5 +34,5 @@ jobs:
           name: DevHour-jars
       - run: ls -R
         shell: bash
-      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/
+      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE
         shell: bash
