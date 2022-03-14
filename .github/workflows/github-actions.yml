@@ -34,9 +34,9 @@ jobs:
       - run: cd ${{steps.jars.outputs.download-path}} && ls -la
         shell: bash
       - run: |
-          docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
-          docker build -t product-service ./3-Configure-ci-cd-pipelines/product-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
-          docker build -t report-service ./3-Configure-ci-cd-pipelines/report-service --build-arg targetFolder=${{steps.jars.outputs.download-path}}
+          docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service
+          docker build -t product-service ./3-Configure-ci-cd-pipelines/product-service
+          docker build -t report-service ./3-Configure-ci-cd-pipelines/report-service
         shell: bash
 
 
