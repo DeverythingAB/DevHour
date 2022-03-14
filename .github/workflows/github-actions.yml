@@ -32,8 +32,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines/builds
-      - run: cd builds && ls -la && pwd
+      - run: ls -R
         shell: bash
       - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/builds
         shell: bash
