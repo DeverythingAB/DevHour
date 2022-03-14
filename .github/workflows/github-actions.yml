@@ -24,9 +24,6 @@ jobs:
   package:
     needs: build
     runs-on : ubuntu-latest
-    defaults:
-      run:
-        working-directory: 3-Configure-ci-cd-pipelines
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
@@ -34,7 +31,7 @@ jobs:
           name: DevHour-jars
       - run: ls -R
         shell: bash
-      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/builds
+      - run: ./3-Configure-ci-cd-pipelines/build-docker-images.sh .
         shell: bash
 
 
