@@ -29,10 +29,8 @@ jobs:
         with:
           name: DevHour-build
         shell: bash
-      - name: Git hash
-        id: git-hash
       - run: |
-          docker build -t order-service:${{ github.sha }} ./order-service
+          docker build -t order-service:${GITHUB_SHA::7} ./order-service
           docker build -t product-service:${{ github.sha }} ./product-service
           docker build -t report-service:${{ github.sha }} ./report-service
         shell: bash
