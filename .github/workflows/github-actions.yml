@@ -49,6 +49,24 @@ jobs:
           docker push ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7}
         shell: bash
 
+      - name: helm deploy
+        uses: koslib/helm-eks-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          command: helm upgrade --install devhour --wait helm_charts --set tag.version=${GITHUB_SHA::7}
+
+      - name: Get URL
+        id: url
+        uses: koslib/helm-eks-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          command: kubectl get svc my_svc -o json | jq -r '.status.loadBalancer.ingress[0].hostname'
+
+      - name: Print Response
+        run: echo "Response was ${{ steps.url.outputs.response }}"
+
 
 #  test:
 #    needs: package
