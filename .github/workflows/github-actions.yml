@@ -32,16 +32,12 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines/staging
+          path: 3-Configure-ci-cd-pipelines/builds
       - run: cd staging && ls -la && pwd
         shell: bash
-      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/staging
+      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/builds
         shell: bash
-      - uses: actions/upload-artifact@v3
-        with:
-          name: DevHour-images
-          path: |
-            3-Configure-ci-cd-pipelines/staging/*.jar
+
 
 #  test:
 #    needs: package
