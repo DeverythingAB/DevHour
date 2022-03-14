@@ -22,7 +22,7 @@ jobs:
           name: DevHour-build
           path: |
             3-Configure-ci-cd-pipelines/
-  package:
+  package-and-push:
     needs: build
     runs-on : ubuntu-latest
     steps:
@@ -30,10 +30,22 @@ jobs:
         id: build
         with:
           name: DevHour-build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
       - run: |
-          docker build -t order-service:${GITHUB_SHA::8}./order-service
-          docker build -t product-service:${GITHUB_SHA::8} ./product-service
-          docker build -t report-service:${GITHUB_SHA::8} ./report-service
+          docker build -t 295899794390.dkr.ecr.eu-north-1.amazonaws.com/order-service:${GITHUB_SHA::8} ./order-service
+          docker build -t 295899794390.dkr.ecr.eu-north-1.amazonaws.com/product-service:${GITHUB_SHA::8} ./product-service
+          docker build -t ${{ ECR_REGISTRY }}/report-service:${GITHUB_SHA::8} ./report-service
         shell: bash
 
 
