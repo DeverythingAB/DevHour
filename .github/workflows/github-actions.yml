@@ -35,7 +35,7 @@ jobs:
           path: 3-Configure-ci-cd-pipelines/staging/*.jar
       - run: ls -R
         shell: bash
-      - run: ./build-docker-images.sh ./staging
+      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/staging
         shell: bash
 
 #  test:
@@ -44,3 +44,8 @@ jobs:
 #    defaults:
 #      run:
 #        working-directory: 3-Configure-ci-cd-pipelines
+#    steps:
+#      - uses: actions/download-artifact@v3
+#        with:
+#          name: DevHour-jars
+#          path: 3-Configure-ci-cd-pipelines/staging/*.jar
