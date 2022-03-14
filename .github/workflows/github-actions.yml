@@ -33,7 +33,7 @@ jobs:
         with:
           name: DevHour-jars
           path: 3-Configure-ci-cd-pipelines/builds
-      - run: cd staging && ls -la && pwd
+      - run: cd builds && ls -la && pwd
         shell: bash
       - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/builds
         shell: bash
