@@ -20,7 +20,7 @@ jobs:
         with:
           name: DevHour-jars
           path: |
-            $GITHUB_WORKSPACE/*/target/*.jar
+            3-Configure-ci-cd-pipelines/staging/*.jar
   package:
     needs: build
     runs-on : ubuntu-latest
