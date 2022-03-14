@@ -31,9 +31,9 @@ jobs:
       - run: cd ${{steps.build.outputs.download-path}} && ls -R
         shell: bash
       - run: |
-          docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service
-          docker build -t product-service ./3-Configure-ci-cd-pipelines/product-service
-          docker build -t report-service ./3-Configure-ci-cd-pipelines/report-service
+          docker build -t order-service ./order-service
+          docker build -t product-service ./product-service
+          docker build -t report-service ./report-service
         shell: bash
 
 
