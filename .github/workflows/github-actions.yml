@@ -43,9 +43,12 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - run: |
-          docker build -t 295899794390.dkr.ecr.eu-north-1.amazonaws.com/order-service:${GITHUB_SHA::8} ./order-service
-          docker build -t 295899794390.dkr.ecr.eu-north-1.amazonaws.com/product-service:${GITHUB_SHA::8} ./product-service
+          docker build -t ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::8} ./order-service
+          docker build -t ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::8} ./product-service
           docker build -t ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::8} ./report-service
+          docker push ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::8}
+          docker push ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::8}
+          docker push ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::8}
         shell: bash
 
 
