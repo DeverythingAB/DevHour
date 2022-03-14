@@ -19,18 +19,16 @@ jobs:
         with:
           name: DevHour-build
           path: |
-            3-Configure-ci-cd-pipelines/*
+            3-Configure-ci-cd-pipelines/
   package:
     needs: build
     runs-on : ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
-        id: jars
+        id: build
         with:
-          name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines
-      - run: cd ${{steps.jars.outputs.download-path}} && ls -R
+          name: DevHour-build
+      - run: cd ${{steps.build.outputs.download-path}} && ls -R
         shell: bash
       - run: |
           docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service
