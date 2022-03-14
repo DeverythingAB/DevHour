@@ -35,5 +35,12 @@ jobs:
           path: 3-Configure-ci-cd-pipelines/staging/*.jar
       - run: ls -R
         shell: bash
-      - run: ./build-docker-images.sh 3-Configure-ci-cd-pipelines/staging
+      - run: ./build-docker-images.sh ./staging
         shell: bash
+
+#  test:
+#    needs: package
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        working-directory: 3-Configure-ci-cd-pipelines
