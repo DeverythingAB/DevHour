@@ -19,7 +19,8 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: DevHour-jars
-          path: staging
+          path: |
+            */target/*.jar
   package:
     needs: build
     runs-on : ubuntu-latest
@@ -31,8 +32,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: DevHour-jars
-          path: staging/
-      - run: cd staging && ls -la
+      - run: ls -R
         shell: bash
-      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/staging
+      - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/
         shell: bash
