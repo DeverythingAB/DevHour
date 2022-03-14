@@ -28,10 +28,11 @@ jobs:
       run:
         working-directory: 3-Configure-ci-cd-pipelines
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
         with:
           name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines/staging/*.jar
+          path: 3-Configure-ci-cd-pipelines/staging
       - run: cd staging && ls -la && pwd
         shell: bash
       - run: ./build-docker-images.sh /$GITHUB_WORKSPACE/3-Configure-ci-cd-pipelines/staging
