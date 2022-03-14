@@ -15,12 +15,11 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - run: mvn clean install
-      - run: cp */target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
-          name: DevHour-jars
+          name: DevHour-build
           path: |
-            3-Configure-ci-cd-pipelines/staging/*.jar
+            3-Configure-ci-cd-pipelines/*
   package:
     needs: build
     runs-on : ubuntu-latest
@@ -30,8 +29,8 @@ jobs:
         id: jars
         with:
           name: DevHour-jars
-          path: 3-Configure-ci-cd-pipelines/staging
-      - run: cd ${{steps.jars.outputs.download-path}} && ls -la
+          path: 3-Configure-ci-cd-pipelines
+      - run: cd ${{steps.jars.outputs.download-path}} && ls -R
         shell: bash
       - run: |
           docker build -t order-service ./3-Configure-ci-cd-pipelines/order-service
