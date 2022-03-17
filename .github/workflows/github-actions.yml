@@ -62,7 +62,7 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          command: kubectl get svc report-service -o json | jq -r '.status.loadBalancer.ingress[0].hostname'
+          command: kubectl get ingress
 
       - name: Print Response
         run: echo "Response was ${{ steps.url.outputs.response }}"
