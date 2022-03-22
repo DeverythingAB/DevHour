@@ -20,47 +20,47 @@ jobs:
           name: DevHour-build
           path: |
             3-Configure-ci-cd-pipelines/
-#  package-and-push:
-#    needs: build
-#    runs-on : ubuntu-latest
-#    steps:
-#      - uses: actions/download-artifact@v3
-#        id: build
-#        with:
-#          name: DevHour-build
-#
-#      - name: Configure AWS credentials
-#        uses: aws-actions/configure-aws-credentials@v1
-#        with:
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-region: eu-north-1
-#
-#      - name: Login to Amazon ECR
-#        id: login-ecr
-#        uses: aws-actions/amazon-ecr-login@v1
-#
-#      - run: |
-#          docker build -t ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7} ./order-service --build-arg version=${GITHUB_SHA::7}
-#          docker build -t ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7} ./product-service --build-arg version=${GITHUB_SHA::7}
-#          docker build -t ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7} ./report-service --build-arg version=${GITHUB_SHA::7}
-#          docker push ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7}
-#          docker push ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7}
-#          docker push ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7}
-#        shell: bash
-#
-#      - name: helm deploy
-#        uses: koslib/helm-eks-action@master
-#        env:
-#          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-#        with:
-#          command: helm upgrade --install devhour --wait helm_charts --set tag.version=${GITHUB_SHA::7}
-#
-#      - name: Get URL
-#        id: url
-#        uses: koslib/helm-eks-action@master
-#        env:
-#          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-#        with:
-#          command: kubectl get ingress
+  package-and-push:
+    needs: build
+    runs-on : ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        id: build
+        with:
+          name: DevHour-build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - run: |
+          docker build -t ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7} ./order-service --build-arg version=${GITHUB_SHA::7}
+          docker build -t ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7} ./product-service --build-arg version=${GITHUB_SHA::7}
+          docker build -t ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7} ./report-service --build-arg version=${GITHUB_SHA::7}
+          docker push ${{ secrets.ECR_REGISTRY }}/order-service:${GITHUB_SHA::7}
+          docker push ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7}
+          docker push ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7}
+        shell: bash
+
+      - name: helm deploy
+        uses: koslib/helm-eks-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          command: helm upgrade --install devhour --wait helm_charts --set tag.version=${GITHUB_SHA::7}
+
+      - name: Get URL
+        id: url
+        uses: koslib/helm-eks-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          command: kubectl get ingress
 
