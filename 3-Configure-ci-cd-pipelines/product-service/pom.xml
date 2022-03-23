@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>com.deverything.devhour</groupId>
 		<artifactId>parent</artifactId>
-		<version>${revision}</version>
+		<version>0-SNAPSHOT</version>
 	</parent>
 	<artifactId>product-service</artifactId>
-	<version>${revision}</version>
+	<version>0-SNAPSHOT</version>
 	<name>product-service</name>
 	<description>Product service</description>
 
