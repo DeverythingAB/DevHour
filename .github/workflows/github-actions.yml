@@ -58,7 +58,7 @@ jobs:
 
       - name: Get url
         id: url
-        uses: koslib/helm-eks-actions@master
+        uses: koslib/helm-eks-action@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
