@@ -48,3 +48,18 @@ jobs:
           docker push ${{ secrets.ECR_REGISTRY }}/product-service:${GITHUB_SHA::7}
           docker push ${{ secrets.ECR_REGISTRY }}/report-service:${GITHUB_SHA::7}
         shell: bash
+
+      - name: helm deploy
+        uses: koslib/helm-eks-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secret.KUBE_CONFIG_DATA }}
+        with:
+          command: helm upgrade --install devhour --wait helm_charts --set tag.version=${GITHUB_SHA::7}
+
+      - name: Get url
+        id: url
+        uses: koslib/helm-eks-actions@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secret.KUBE_CONFIG_DATA }}
+        with:
+          command: kubectl get ingress
