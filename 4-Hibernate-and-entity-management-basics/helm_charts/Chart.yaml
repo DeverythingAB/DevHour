@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for DevHour Kubernetes deployment
+name: DevHour
+version: 0.0.2
