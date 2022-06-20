@@ -8,7 +8,7 @@ Completing this section will give you an idea of how to prepare your project for
 Look at the slides.pdf to get an overview or follow along the recording on YouTube
 
 #### YouTube recording of this session
-https://www.youtube.com/watch?v=
+[https://www.youtube.com/watch?v=ER-DXOmFt_A](https://www.youtube.com/watch?v=ER-DXOmFt_A)
 
 ## Content
 
